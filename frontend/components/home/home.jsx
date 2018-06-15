@@ -1,13 +1,15 @@
 import React from "react";
 
-const Home = () => {
-    return (
-        <p>
-        <h1>MyRubySnippets</h1>
-        <a href="/auth/google_oauth2">Sign in with Google</a>
-        </p>
-    )
-    
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>"Howdy!</div>
+        )
+    }
 }
 
 export default Home;
