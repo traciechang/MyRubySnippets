@@ -6,6 +6,7 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log("hitting Home render!!")
         return (
             <div>"Howdy!</div>
         )

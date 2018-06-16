@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'auth/failure', to: redirect('/')
 
-  resource :session, only: [:create, :destroy]
+  resource :session, only: [:create, :destroy], :defaults => { :format => 'json' }
   resources :users, only: [:show]
+
 end

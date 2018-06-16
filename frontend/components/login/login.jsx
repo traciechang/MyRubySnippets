@@ -3,21 +3,29 @@ import React from "react";
 class Login extends React.Component {
     constructor(props) {
         super(props);
+
+        this.logout = this.props.logout.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
         console.log("login, componentWillReceiveProps")
-        if (nextProps.loggedIn) {
+        console.log(nextProps.loggedIn)
+        if (nextProps.loggedIn && nextProps.loggedIn != this.props.loggedIn) {
             this.props.history.push("/home");
         }
     }
 
-    componentDidlMount() {
-        console.log("Login, compoenent Did Mount")
+    componentWillMount() {
+        console.log("componentWillMount")
         this.props.fetchUser();
     }
+    // componentDidlMount() {
+    //     console.log("Login, compoenent Did Mount")
+    //     this.props.fetchUser();
+    // }
 
     render() {
+        console.log("hitting login render")
         return (
             <div>
                 <h1>MyRubySnippets</h1>
@@ -25,6 +33,7 @@ class Login extends React.Component {
 
                 {/* Home */}
                 
+                <button onClick={this.logout}>Log Out</button>
             </div>
         )
     }
