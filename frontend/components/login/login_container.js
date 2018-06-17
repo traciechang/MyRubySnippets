@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import Login from "./login"
 import { fetchUser } from "../../actions/user_actions";
-import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = (state) => {
     console.log("in login container, mapState toprops")
@@ -11,8 +10,7 @@ const mapStateToProps = (state) => {
 })}
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchUser: () => dispatch(fetchUser()),
-    logout: () => dispatch(logout())
+    fetchUser: () => dispatch(fetchUser())
 });
 
 export default connect(

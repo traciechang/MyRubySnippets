@@ -3,22 +3,27 @@ import React from "react";
 class Login extends React.Component {
     constructor(props) {
         super(props);
-
-        this.logout = this.props.logout.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log("login, componentWillReceiveProps")
-        console.log(nextProps.loggedIn)
-        if (nextProps.loggedIn && nextProps.loggedIn != this.props.loggedIn) {
-            this.props.history.push("/home");
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     console.log("login, componentWillReceiveProps")
+    //     console.log(nextProps.loggedIn)
+    //     console.log(nextProps.loggedIn != this.props.loggedIn)
+    //     if (nextProps.loggedIn && nextProps.loggedIn != this.props.loggedIn) {
+    //         this.props.history.push('/home');
+    //     }
+    // }
 
     componentWillMount() {
         console.log("componentWillMount")
-        this.props.fetchUser();
+        this.props.fetchUser()
+        .then(() => {
+            if (this.props.loggedIn) {
+                this.props.history.push("/home");
+            }
+        })
     }
+
     // componentDidlMount() {
     //     console.log("Login, compoenent Did Mount")
     //     this.props.fetchUser();
@@ -30,10 +35,6 @@ class Login extends React.Component {
             <div>
                 <h1>MyRubySnippets</h1>
                 <a href="/auth/google_oauth2">Sign in with Google</a>
-
-                {/* Home */}
-                
-                <button onClick={this.logout}>Log Out</button>
             </div>
         )
     }

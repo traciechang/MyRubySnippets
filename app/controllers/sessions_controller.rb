@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        # binding.pry
         @user = current_user
         if @user
             logout
