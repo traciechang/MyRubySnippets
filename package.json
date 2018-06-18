@@ -9,6 +9,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "bootstrap-social": "^5.1.1",
     "lodash": "^4.17.10",
     "react": "^16.4.0",
     "react-ace": "^6.1.1",

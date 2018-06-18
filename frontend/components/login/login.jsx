@@ -34,7 +34,12 @@ class Login extends React.Component {
         return (
             <div>
                 <h1>MyRubySnippets</h1>
-                <a href="/auth/google_oauth2">Sign in with Google</a>
+
+                <a href="/auth/google_oauth2" class="btn btn-social btn-google text-white">
+                    <span class="fab fa-google text-white"></span>
+                    Sign in with Google
+                </a>
+
             </div>
         )
     }
