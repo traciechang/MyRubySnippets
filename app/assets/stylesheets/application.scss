@@ -15,3 +15,82 @@
  *= require_tree .
  *= require_self
  */
+
+// General
+body, html, #root, .app {
+    height: 100%;
+}
+
+// Navbar
+.navbar {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    background-color: black;
+    // need to apply this font to rest of Home page (minus editor)
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.navbar > span {
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.signed-in-as {
+    padding-right: 20px;
+}
+// 
+.get-started {
+    overflow: hidden;
+    text-align: center;
+    color: gray;
+    margin-top: 50px;
+  }
+  
+  .get-started:before,
+  .get-started:after {
+    background-color: gray;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 4%;
+  }
+  
+  .get-started:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  .get-started:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
+//   Login
+.login-parent {
+    display: flex;
+    justify-content: center;
+    min-height: 80%;
+}
+
+.login {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 40px;
+    margin-top: 100px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.buttons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons-div > a {
+    margin-bottom: 10px;
+}

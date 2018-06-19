@@ -30,16 +30,33 @@ class Login extends React.Component {
     // }
 
     render() {
-        console.log("hitting login render")
         return (
-            <div>
-                <h1>MyRubySnippets</h1>
+            <div class="login-parent">
+                <div class="login text-center">
+                    <h1>MyRubySnippets</h1>
 
-                <a href="/auth/google_oauth2" class="btn btn-social btn-google text-white">
-                    <span class="fab fa-google text-white"></span>
-                    Sign in with Google
-                </a>
+                    <p>A cloud-based IDE for writing, running, and debugging Ruby code in your browser</p>
+                    
+                    <p class="get-started">Log in to get started</p>
 
+                    <div class="buttons-div">
+                        <a href="/auth/google_oauth2" class="btn btn-social btn-google text-white">
+                            <span class="fab fa-google text-white"></span>
+                            Sign in with Google
+                        </a>
+
+                        <a href="/auth/google_oauth2" class="btn btn-social btn-facebook text-white">
+                            <span class="fab fa-facebook text-white"></span>
+                            Sign in with Facebook
+                        </a>
+
+                        <a href="/auth/google_oauth2" class="btn btn-social btn-github text-white">
+                            <span class="fab fa-github text-white"></span>
+                            Sign in with GitHub
+                        </a>
+                    </div>
+
+                </div>
             </div>
         )
     }

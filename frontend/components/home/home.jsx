@@ -1,6 +1,7 @@
 import React from "react";
 import brace from "brace";
 import AceEditor from "react-ace";
+import NavigationBarContainer from "../navigation_bar/navigation_bar_container";
 
 import 'brace/mode/ruby';
 import 'brace/theme/monokai';
@@ -9,7 +10,6 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.logout = this.props.logout.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
@@ -20,8 +20,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-
-                <button onClick={this.logout}>Log Out</button>
+                <NavigationBarContainer />
 
                 <AceEditor
                     mode="ruby"
@@ -30,6 +29,8 @@ class Home extends React.Component {
                     fontSize={14}
                     name="myrubee"
                     editorProps={{$blockScrolling: true}} />
+
+                <button>Run</button>
             </div>
         )
     }
