@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy], :defaults => { :format => 'json' }
   resources :users, only: [:show]
-
+  resources :snippets, only: [:update]
 end

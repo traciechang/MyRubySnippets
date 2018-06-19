@@ -10,11 +10,23 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            id: this.props.snippetId,
+            snippet: this.props.snippet,
+            user_id: this.props.currentUserId
+        }
+
+        this.execute = this.execute.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
+    execute() {
+        
+    }
+
     onChange(newValue) {
-        console.log('change',newValue);
+        // console.log('change',newValue);
+        return e => this.setState({["snippet"]: newValue})
     }
 
     render() {
@@ -28,9 +40,10 @@ class Home extends React.Component {
                     onChange={this.onChange}
                     fontSize={14}
                     name="myrubee"
+                    value={this.props.snippet}
                     editorProps={{$blockScrolling: true}} />
 
-                <button>Run</button>
+                <button onClick={this.execute}>Run</button>
             </div>
         )
     }
