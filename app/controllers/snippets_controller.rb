@@ -6,12 +6,6 @@ class SnippetsController < ApplicationController
     def update
     end
 
-    def execute
-        @snippet = Snippet.find(params[:id])
-
-        eval(@snippet.snippet)
-    end
-
     private
     def snippet_params
         params.require(:snippet).permit(:user_id, :snippet)

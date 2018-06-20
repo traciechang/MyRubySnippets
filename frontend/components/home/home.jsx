@@ -20,8 +20,11 @@ class Home extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    execute() {
-        
+    execute(e) {
+        console.log("in home component, execute")
+        console.log(this.state)
+        e.preventDefault();
+        this.props.executeSnippet(this.state)
     }
 
     onChange(newValue) {
@@ -30,6 +33,10 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log("home")
+        console.log(this.props.outputText)
+        let output = this.props.outputText ? this.props.outputText.output : ""
+
         return (
             <div>
                 <NavigationBarContainer />
@@ -44,6 +51,8 @@ class Home extends React.Component {
                     editorProps={{$blockScrolling: true}} />
 
                 <button onClick={this.execute}>Run</button>
+
+                <p>{output}</p>
             </div>
         )
     }
