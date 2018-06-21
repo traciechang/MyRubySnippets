@@ -62,23 +62,25 @@ class Home extends React.Component {
         let output = this.props.outputText ? this.props.outputText.output : ""
 
         return (
-            <div>
+            <div class="home">
                 <NavigationBarContainer />
 
-                <AceEditor
-                    id="ace-editor"
-                    ref={this.aceEditor}
-                    mode="ruby"
-                    theme="monokai"
-                    onChange={this.onChange}
-                    fontSize={14}
-                    name="myrubee"
-                    value={this.state.snippet}
-                    editorProps={{$blockScrolling: true}} />
+                <div class="home-body row">
+                    <AceEditor
+                        mode="ruby"
+                        theme="monokai"
+                        onChange={this.onChange}
+                        fontSize={14}
+                        name="myrubee"
+                        value={this.state.snippet}
+                        editorProps={{$blockScrolling: true}} />
 
-                <button onClick={this.execute}>Run</button>
+                    <div class="button-and-output col-5">
+                        <button class="run-button" onClick={this.execute}>Run</button>
 
-                <p>{output}</p>
+                        <div class="output text-white">{output}</div>
+                    </div>
+                </div>
             </div>
         )
     }

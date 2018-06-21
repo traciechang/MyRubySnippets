@@ -57,7 +57,7 @@ body, html, #root, .app {
     height: 1px;
     position: relative;
     vertical-align: middle;
-    width: 4%;
+    width: 15%;
   }
   
   .get-started:before {
@@ -93,4 +93,43 @@ body, html, #root, .app {
 
 .buttons-div > a {
     margin-bottom: 10px;
+}
+
+.btn-google, .btn-github {
+    width: 215.252px;
+}
+
+// Home
+.home {
+    background-color: #363636;
+}
+
+.home-body {
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button-and-output {
+    display: flex;
+    flex-direction: column;
+}
+
+.output {
+    height: 80vh;
+    width: 40vw;
+    background-color: black;
+}
+
+.run-button {
+    background: darkblue;
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 10px 30px;
+}
+
+.run-button:hover {
+    cursor: pointer;
 }
