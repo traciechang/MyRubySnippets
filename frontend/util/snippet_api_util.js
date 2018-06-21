@@ -7,3 +7,11 @@ export const executeSnippet = snippet => {
         data: {snippet}
     })
 }
+
+export const updateSnippet = snippet => (
+    $.ajax({
+        method: "PATCH",
+        url: `/snippets/${snippet.id}`,
+        data: {snippet}
+    })
+)

@@ -1,13 +1,14 @@
 class SnippetsController < ApplicationController
-    def show
-        # dont need this? because u can just grab snippet when we fetch user
-    end
-
     def update
+        @snippet = Snippet.find(params[:id])
+
+        if @snippet.update(snippet_params)
+            render :show
+        end
     end
 
     private
     def snippet_params
-        params.require(:snippet).permit(:user_id, :snippet)
+        params.require(:snippet).permit(:snippet)
     end
 end

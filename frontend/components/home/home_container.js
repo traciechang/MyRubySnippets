@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Home from "./home";
-import { executeSnippet } from "../../actions/snippet_actions";
+import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
 
 const mapStateToProps = state => ({
     currentUserId: state.session.currentUser.id,
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    executeSnippet: (snippet) => dispatch(executeSnippet(snippet))
+    executeSnippet: (snippet) => dispatch(executeSnippet(snippet)),
+    updateSnippet: (snippet) => dispatch(updateSnippet(snippet))
 })
 
 export default connect(

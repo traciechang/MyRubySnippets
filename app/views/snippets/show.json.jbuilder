@@ -1,0 +1,1 @@
+json.partial! "snippets/snippets", snippet: @snippet

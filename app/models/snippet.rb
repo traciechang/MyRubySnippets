@@ -1,5 +1,5 @@
 class Snippet < ApplicationRecord
-    validates :user_id, :snippet, presence: true
+    validates :user_id, presence: true
     belongs_to :user
 
     # def execute(code)

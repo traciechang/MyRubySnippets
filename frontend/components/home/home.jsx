@@ -16,25 +16,49 @@ class Home extends React.Component {
             user_id: this.props.currentUserId
         }
 
+        this.timeout = null;
+        // this.aceEditor = React.createRef();
         this.execute = this.execute.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
+    componentDidUpdate() {
+        console.log("in home, componentDidUpdate")
+        console.log(typeof this.state.snippet)
+        clearTimeout(this.timeout);
+
+        this.timeout = setTimeout(() => {
+            this.props.updateSnippet(this.state);
+        }, 5000);
+    }
+
+    // componentDidMount() {
+    //     console.log("home - componentDidMount")
+    //     // const editor = document.getElementById('ace-editor');
+    //     let timeout = null;
+
+    //     this.aceEditor.onkeyup = () => {
+    //         clearTimeout(timeout);
+
+    //         timeout = setTimeout(() => {
+    //             this.props.updateSnippet(this.state);
+    //         }, 5000);
+    //     };
+    // }
+
     execute(e) {
         console.log("in home component, execute")
-        console.log(this.state)
         e.preventDefault();
         this.props.executeSnippet(this.state)
     }
 
     onChange(newValue) {
-        // console.log('change',newValue);
-        return e => this.setState({["snippet"]: newValue})
+        console.log('change',newValue);
+        this.setState({"snippet": newValue})
+        // return e => this.setState({"snippet": newValue})
     }
 
     render() {
-        console.log("home")
-        console.log(this.props.outputText)
         let output = this.props.outputText ? this.props.outputText.output : ""
 
         return (
@@ -42,12 +66,14 @@ class Home extends React.Component {
                 <NavigationBarContainer />
 
                 <AceEditor
+                    id="ace-editor"
+                    ref={this.aceEditor}
                     mode="ruby"
                     theme="monokai"
                     onChange={this.onChange}
                     fontSize={14}
                     name="myrubee"
-                    value={this.props.snippet}
+                    value={this.state.snippet}
                     editorProps={{$blockScrolling: true}} />
 
                 <button onClick={this.execute}>Run</button>
