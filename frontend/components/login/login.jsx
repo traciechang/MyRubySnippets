@@ -45,12 +45,7 @@ class Login extends React.Component {
                             Sign in with Google
                         </a>
 
-                        <a href="/auth/google_oauth2" class="btn btn-social btn-facebook text-white">
-                            <span class="fab fa-facebook text-white"></span>
-                            Sign in with Facebook
-                        </a>
-
-                        <a href="/auth/google_oauth2" class="btn btn-social btn-github text-white">
+                        <a href="/auth/github" class="btn btn-social btn-github text-white">
                             <span class="fab fa-github text-white"></span>
                             Sign in with GitHub
                         </a>

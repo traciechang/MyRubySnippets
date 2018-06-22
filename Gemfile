@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'omniauth-google-oauth2'
-gem 'figaro'
+gem 'omniauth-github'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
