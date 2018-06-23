@@ -24,7 +24,7 @@ body, html, #root, .app {
 // Navbar
 .navbar {
     border-bottom: 1px solid black;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     background-color: black;
     // need to apply this font to rest of Home page (minus editor)
     font-family: 'Nunito Sans', sans-serif;
@@ -74,15 +74,24 @@ body, html, #root, .app {
 .login-parent {
     display: flex;
     justify-content: center;
-    min-height: 80%;
+    // min-height: 80%;
+    height: 100%;
+    background: linear-gradient(to right, black, red, black)
 }
 
 .login {
     border: 1px solid lightgray;
+    background: white;
     border-radius: 5px;
     padding: 40px;
     margin-top: 100px;
     font-family: 'Nunito Sans', sans-serif;
+    height: 60%;
+}
+
+.login-h1 {
+    color: red;
+    font-weight: bold;
 }
 
 .buttons-div {
@@ -95,13 +104,14 @@ body, html, #root, .app {
     margin-bottom: 10px;
 }
 
-.btn-google, .btn-github {
+.btn-google, .btn-github, .btn-linkedin {
     width: 215.252px;
 }
 
 // Home
 .home {
     background-color: #363636;
+    height: 100%;
 }
 
 .home-body {
@@ -117,9 +127,11 @@ body, html, #root, .app {
 }
 
 .output {
-    height: 80vh;
-    width: 40vw;
+    height: 439px;
+    width: 400px;
     background-color: black;
+    padding: 5px;
+    overflow-wrap: break-word;
 }
 
 .run-button {
@@ -127,7 +139,9 @@ body, html, #root, .app {
     color: white;
     border: 1px solid black;
     border-radius: 2px;
-    margin: 10px 30px;
+    height: 40px;
+    width: 80px;
+    margin: 10px 0px;
 }
 
 .run-button:hover {

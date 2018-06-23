@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
+gem 'omniauth-linkedin-oauth2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -55,7 +55,6 @@ class Home extends React.Component {
     onChange(newValue) {
         console.log('change',newValue);
         this.setState({"snippet": newValue})
-        // return e => this.setState({"snippet": newValue})
     }
 
     render() {

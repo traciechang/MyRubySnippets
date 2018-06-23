@@ -33,7 +33,7 @@ class Login extends React.Component {
         return (
             <div class="login-parent">
                 <div class="login text-center">
-                    <h1>MyRubySnippets</h1>
+                    <h1 class="login-h1">MyRubySnippets</h1>
 
                     <p>A cloud-based IDE for writing, running, and debugging Ruby code in your browser</p>
                     
@@ -48,6 +48,11 @@ class Login extends React.Component {
                         <a href="/auth/github" class="btn btn-social btn-github text-white">
                             <span class="fab fa-github text-white"></span>
                             Sign in with GitHub
+                        </a>
+
+                        <a href="/auth/linkedin" class="btn btn-social btn-linkedin text-white">
+                            <span class="fab fa-linkedin text-white"></span>
+                            Sign in with LinkedIn
                         </a>
                     </div>
 
