@@ -17,14 +17,13 @@ class Home extends React.Component {
         }
 
         this.timeout = null;
-        // this.aceEditor = React.createRef();
         this.execute = this.execute.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
     componentDidUpdate() {
         console.log("in home, componentDidUpdate")
-        console.log(typeof this.state.snippet)
+        console.log(this.state.snippet)
         clearTimeout(this.timeout);
 
         this.timeout = setTimeout(() => {
@@ -47,8 +46,9 @@ class Home extends React.Component {
     // }
 
     execute(e) {
-        console.log("in home component, execute")
         e.preventDefault();
+        console.log("in home component, execute")
+        console.log(this.state.snippet)
         this.props.executeSnippet(this.state)
     }
 
