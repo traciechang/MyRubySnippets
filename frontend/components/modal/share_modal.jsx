@@ -6,8 +6,30 @@ class ShareModal extends React.Component {
 
         this.state = {
             username: "",
-            snippet_id: this.props.snippetId
+            snippet_id: this.props.snippetId,
+            errors: []
         }
+    }
+
+    componentDidMount() {
+        $('#exampleModal').on('hidden.bs.modal', () => {
+            this.setState({
+                "username": "",
+                "errors": []
+            })
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({
+                "errors": nextProps.errors
+            })
+        }
+    }
+
+    displayErrors() {
+        return this.state.errors.map(err => <li>{err}</li>)
     }
 
     render() {
@@ -27,6 +49,7 @@ class ShareModal extends React.Component {
 
                             <button>Share</button>
                         </form>
+                        {this.displayErrors()}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -41,6 +64,9 @@ class ShareModal extends React.Component {
     shareWorkspace = (e) => {
         e.preventDefault();
         this.props.createSharedSnippet(this.state)
+        .then(() => {
+            $('#exampleModal').modal('hide')
+        })
     }
 
     updateInput = key => {

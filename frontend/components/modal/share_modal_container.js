@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import ShareModal from "./share_modal";
-import { createSharedSnippet } from "../../util/shared_snippet_api_util";
+import { createSharedSnippet } from "../../actions/shared_snippet_actions";
 
 const mapStateToProps = state => ({
-    snippedId: state.session.currentUser.snippet
+    snippetId: state.session.currentUser.snippet_id,
+    errors: state.errors.sharedSnippet
 });
 
 const mapDispatchToProps = dispatch => ({

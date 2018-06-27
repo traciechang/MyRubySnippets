@@ -4,7 +4,15 @@ class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.logout = this.props.logout.bind(this);
+        // this.logout = this.props.logout.bind(this);
+    }
+
+    displayUser = () => {
+        if (this.props.currentUser.username) {
+            return <span class="text-white signed-in-as">Welcome, {this.props.currentUser.username}!</span>
+        } else {
+            return  <span class="text-white signed-in-as">Signed in as: {this.props.currentUser.email}</span>
+        }
     }
 
     logoutButton = () => {
@@ -18,7 +26,7 @@ class NavigationBar extends React.Component {
                 </span>
 
                 <div>
-                    <span class="text-white signed-in-as">Signed in as: {this.props.currentUser.email}</span>
+                    {this.displayUser()}
                     {this.logoutButton()}
                 </div>
             </div>
