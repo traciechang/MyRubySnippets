@@ -10,6 +10,15 @@ class CreateUsernameModal extends React.Component {
         }
     }
 
+    componentDidMount() {
+        $('#exampleModal').on('hidden.bs.modal', () => {
+            this.setState({
+                "username": "",
+                "errors": []
+            })
+        })
+    }
+    
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({
@@ -57,7 +66,10 @@ class CreateUsernameModal extends React.Component {
 
     updateUser = e => {
         e.preventDefault();
-        this.props.updateUser(this.state);
+        this.props.updateUser(this.state)
+        .then(() => {
+            $('.modal-backdrop').remove();
+        });
     }
 }
 

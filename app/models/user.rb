@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :provider, :uid, :email, :first_name, presence: true
     validates :uid, uniqueness: { scope: :provider }
-    validates :username, uniqueness: true
+    validates :username, uniqueness: true, allow_nil: true
 
     after_create :create_snippet
 
@@ -12,11 +12,11 @@ class User < ApplicationRecord
         where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
             user.provider = auth.provider
             user.uid = auth.uid
+            user.email = auth.info.email
             if auth.provider == "github"
-                user.email = auth.info.nickname
                 user.first_name = auth.info.nickname
             else
-                user.email = auth.info.email
+                # user.email = auth.info.email
                 user.first_name = auth.info.first_name
             end
             user.save!
