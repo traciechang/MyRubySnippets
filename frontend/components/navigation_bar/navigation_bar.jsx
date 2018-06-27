@@ -7,7 +7,7 @@ class NavigationBar extends React.Component {
         this.logout = this.props.logout.bind(this);
     }
 
-    logoutButton() {
+    logoutButton = () => {
         return <button class="btn-outline-info logout-button" onClick={this.logout}>Log Out</button>
     }
 

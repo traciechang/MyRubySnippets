@@ -4,6 +4,7 @@ import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
 
 const mapStateToProps = state => ({
     currentUserId: state.session.currentUser.id,
+    username: state.session.currentUser.username,
     snippetId: state.session.currentUser.snippet_id,
     snippet: state.session.currentUser.snippet,
     outputText: state.entities.output

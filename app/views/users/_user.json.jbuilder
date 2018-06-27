@@ -1,4 +1,4 @@
-json.extract! user, :id, :email, :first_name
+json.extract! user, :id, :email, :first_name, :username
 json.partial! "snippets/snippets", snippet: user.snippet
 
 # no

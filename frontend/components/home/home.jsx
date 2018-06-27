@@ -2,6 +2,7 @@ import React from "react";
 import brace from "brace";
 import AceEditor from "react-ace";
 import NavigationBarContainer from "../navigation_bar/navigation_bar_container";
+import Sidebar from "../sidebar/sidebar";
 
 import 'brace/mode/ruby';
 import 'brace/theme/monokai';
@@ -17,8 +18,8 @@ class Home extends React.Component {
         }
 
         this.timeout = null;
-        this.execute = this.execute.bind(this);
-        this.onChange = this.onChange.bind(this);
+        // this.execute = this.execute.bind(this);
+        // this.onChange = this.onChange.bind(this);
     }
 
     componentDidUpdate() {
@@ -45,14 +46,12 @@ class Home extends React.Component {
     //     };
     // }
 
-    execute(e) {
+    execute = (e) => {
         e.preventDefault();
-        console.log("in home component, execute")
-        console.log(this.state.snippet)
         this.props.executeSnippet(this.state)
     }
 
-    onChange(newValue) {
+    onChange = (newValue) => {
         console.log('change',newValue);
         this.setState({"snippet": newValue})
     }
@@ -65,21 +64,26 @@ class Home extends React.Component {
                 <NavigationBarContainer />
 
                 <div class="home-body row">
-                    <AceEditor
-                        mode="ruby"
-                        theme="monokai"
-                        onChange={this.onChange}
-                        fontSize={14}
-                        name="myrubee"
-                        value={this.state.snippet}
-                        editorProps={{$blockScrolling: true}} />
+                    <Sidebar username={this.props.username}/>
+                    <div class="editor-and-output col-9">
+                        <AceEditor
+                            mode="ruby"
+                            theme="monokai"
+                            onChange={this.onChange}
+                            fontSize={14}
+                            name="myrubee"
+                            value={this.state.snippet}
+                            editorProps={{$blockScrolling: true}} />
 
-                    <div class="button-and-output col-5">
-                        <button class="run-button" onClick={this.execute}>Run</button>
+                        <div class="button-and-output">
+                            <button class="run-button" onClick={this.execute}>Run</button>
 
-                        <div class="output text-white">{output}</div>
+                            <div class="output text-white">{output}</div>
+                        </div>
                     </div>
                 </div>
+
+ 
             </div>
         )
     }

@@ -24,7 +24,7 @@ body, html, #root, .app {
 // Navbar
 .navbar {
     border-bottom: 1px solid black;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
     background-color: black;
     // need to apply this font to rest of Home page (minus editor)
     font-family: 'Nunito Sans', sans-serif;
@@ -116,14 +116,22 @@ body, html, #root, .app {
 
 .home-body {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    background-color: #363636;
+}
+
+.editor-and-output {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .button-and-output {
     display: flex;
     flex-direction: column;
+    margin-left: 30px;
 }
 
 .output {
@@ -135,7 +143,7 @@ body, html, #root, .app {
 }
 
 .run-button {
-    background: darkblue;
+    background: #6d7fcc;
     color: white;
     border: 1px solid black;
     border-radius: 2px;
@@ -147,3 +155,77 @@ body, html, #root, .app {
 .run-button:hover {
     cursor: pointer;
 }
+
+// Sidebar
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    // border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a, .custom-li button {
+    color: white;
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover, .custom-li button:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+// .search-btn {
+//     width: 200px;
+// }
+
+.custom-li button {
+    width: 100%;
+    text-align: start;
+}
+
+// .custom-li:hover {
+//     color: #7386D5;
+//     background: #fff;
+// }

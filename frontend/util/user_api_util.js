@@ -6,3 +6,11 @@ export const fetchUser = () => {
         url: `users/1`
     })
 )}
+
+export const updateUser = (user) => (
+    $.ajax({
+        method: "PATCH",
+        url: "users/1",
+        data: {user}
+    })
+)
