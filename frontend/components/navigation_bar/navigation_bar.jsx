@@ -16,7 +16,7 @@ class NavigationBar extends React.Component {
     }
 
     logoutButton = () => {
-        return <button class="btn-outline-info logout-button" onClick={this.logout}>Log Out</button>
+        return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Log Out</button>
     }
 
     render() {

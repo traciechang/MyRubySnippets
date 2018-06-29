@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
     username: state.session.currentUser.username,
     snippetId: state.session.currentUser.snippet_id,
     snippet: state.session.currentUser.snippet,
-    outputText: state.entities.output
+    outputText: state.entities.output,
+    sharedSnippets: state.session.currentUser.shared_snippets
 });
 
 const mapDispatchToProps = dispatch => ({

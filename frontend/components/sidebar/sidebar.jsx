@@ -17,6 +17,10 @@ class Sidebar extends React.Component {
         }
     }
 
+    displaySharedSnippets = () => {
+        return this.props.sharedSnippets.map(snip => <li><a href="#">{snip["username"]}</a></li>)
+    }
+
     render() {
         return (
             <div class="wrapper">
@@ -35,7 +39,7 @@ class Sidebar extends React.Component {
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Shared Snippets</a>
                 {/* add class "collapse if u want it to start collapsed" */}
                 <ul class=" list-unstyled" id="pageSubmenu">
-                    <li>
+                    {/* <li>
                         <a href="#">Pusheen</a>
                     </li>
                     <li>
@@ -43,7 +47,8 @@ class Sidebar extends React.Component {
                     </li>
                     <li>
                         <a href="#">Pip</a>
-                    </li>
+                    </li> */}
+                    {this.displaySharedSnippets()}
                 </ul>
             </li>
          

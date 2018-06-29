@@ -64,7 +64,7 @@ class Home extends React.Component {
                 <NavigationBarContainer />
 
                 <div class="home-body row">
-                    <Sidebar username={this.props.username}/>
+                    <Sidebar username={this.props.username} sharedSnippets={this.props.sharedSnippets}/>
                     <div class="editor-and-output col-9">
                         <AceEditor
                             mode="ruby"
