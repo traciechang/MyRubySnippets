@@ -18,8 +18,6 @@ class Home extends React.Component {
         }
 
         this.timeout = null;
-        // this.execute = this.execute.bind(this);
-        // this.onChange = this.onChange.bind(this);
     }
 
     componentDidUpdate() {

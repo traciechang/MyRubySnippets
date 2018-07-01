@@ -7,10 +7,6 @@ const defaultState = {
 }
 
 export const sessionReducer = (state = defaultState, action) => {
-    Object.freeze(state);
-    console.log("in session reducer")
-    console.log(action.snippet)
-
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
             return {currentUser: action.currentUser};

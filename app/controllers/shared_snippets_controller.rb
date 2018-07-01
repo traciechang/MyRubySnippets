@@ -1,8 +1,7 @@
 class SharedSnippetsController < ApplicationController
     def create
-        # user_id = User.find_by("username": shared_snippet_params[:username]).id
         user = User.find_by("username": shared_snippet_params[:username])
-        
+
         if user
             user_id = user.id
         else
