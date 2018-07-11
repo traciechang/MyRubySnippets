@@ -1,3 +1,11 @@
+export const createSnippet = snippet => (
+    $.ajax({
+        method: "POST",
+        url: `/snippets`,
+        data: {snippet}
+    })
+)
+
 export const executeSnippet = snippet => {
     console.log("in snippet api util")
     console.log(snippet)

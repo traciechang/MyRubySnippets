@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 // import CreateUsernameModal from "./create_username_modal";
 import CreateSnippetModal from "./create_snippet_modal";
-import { updateUser } from "../../actions/user_actions";
+// import { updateUser } from "../../actions/user_actions";
+import { createSnippet } from "../../actions/snippet_actions";
 
 const mapStateToProps = state => {
-    let snippetNumber = state.session.currentUser.total_snippets != [] ? state.session.currentUser.total_snippets + 1 : 1
+    let snippetNumber = state.session.currentUser.total_snippets != [] ? state.session.currentUser.total_snippets.length + 1 : 1
 
     return ({
     currentUserId: state.session.currentUser.id,

@@ -10,8 +10,8 @@ export const sessionReducer = (state = defaultState, action) => {
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
             return {currentUser: action.currentUser};
-        case RECEIVE_SNIPPET:
-            return merge({}, state, {currentUser: {snippet: action.snippet.snippet, snippet_id: action.snippet.snippet_id}})
+        // case RECEIVE_SNIPPET:
+        //     return merge({}, state, {currentUser: {snippet: action.snippet.snippet, snippet_id: action.snippet.snippet_id}})
         default:
             return state;
     }

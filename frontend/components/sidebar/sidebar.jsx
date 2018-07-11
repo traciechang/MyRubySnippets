@@ -19,9 +19,13 @@ class Sidebar extends React.Component {
         // }
     }
 
-    displaySharedSnippets = () => {
-        return this.props.sharedSnippets.map(snip => <li><a href="#">{snip["username"]}</a></li>)
+    displayMySnippets = () => {
+        return this.props.mySnippets.map(snip => <li><a href="#">{snip.name}</a></li>)
     }
+
+    // displaySharedSnippets = () => {
+    //     return this.props.sharedSnippets.map(snip => <li><a href="#">{snip["username"]}</a></li>)
+    // }
 
     render() {
         return (
@@ -34,11 +38,12 @@ class Sidebar extends React.Component {
 
         <ul class="list-unstyled components">
       
-            <li>
-                <a href="#">My Snippet</a>
+            <li class="custom-li">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Create New Snippet</button>
             </li>
+
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Shared Snippets</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My Snippets</a>
                 {/* add class "collapse if u want it to start collapsed" */}
                 <ul class=" list-unstyled" id="pageSubmenu">
                     {/* <li>
@@ -50,12 +55,8 @@ class Sidebar extends React.Component {
                     <li>
                         <a href="#">Pip</a>
                     </li> */}
-                    {this.displaySharedSnippets()}
+                    {this.displayMySnippets()}
                 </ul>
-            </li>
-         
-            <li class="custom-li">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Create New Snippet</button>
             </li>
         </ul>
     </nav>

@@ -1,3 +1,5 @@
+// DELETE
+
 import { RECEIVE_SHARED_SNIPPET } from "../actions/shared_snippet_actions";
 import { RECEIVE_SHARED_SNIPPET_ERRORS } from "../actions/shared_snippet_actions";
 
