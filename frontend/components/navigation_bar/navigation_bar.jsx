@@ -8,6 +8,7 @@ class NavigationBar extends React.Component {
     }
 
     displayUser = () => {
+        // get rid of username
         if (this.props.currentUser.username) {
             return <span class="text-white signed-in-as">Welcome, {this.props.currentUser.username}!</span>
         } else {

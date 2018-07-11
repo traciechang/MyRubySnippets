@@ -3,9 +3,9 @@ class User < ApplicationRecord
     validates :uid, uniqueness: { scope: :provider }
     validates :username, uniqueness: true, allow_nil: true
 
-    after_create :create_snippet
+    # after_create :create_snippet
 
-    has_one :snippet, dependent: :destroy
+    has_many :snippets, dependent: :destroy
     has_many :shared_snippets, dependent: :destroy
 
     def self.find_or_create_from_auth_hash(auth)

@@ -1,6 +1,7 @@
 import React from "react";
-import ShareModalContainer from "../modal/share_modal_container";
-import CreateUsernameModalContainer from "../modal/create_username_modal_container";
+import CreateSnippetModalContainer from "../modal/create_snippet_modal_container";
+// import ShareModalContainer from "../modal/share_modal_container";
+// import CreateUsernameModalContainer from "../modal/create_username_modal_container";
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -8,13 +9,14 @@ class Sidebar extends React.Component {
     }
 
     displayModal = () => {
-        console.log("in sidebar, displayModal")
-        console.log(this.props.username)
-        if (this.props.username) {
-            return <ShareModalContainer />
-        } else {
-            return <CreateUsernameModalContainer />
-        }
+        return <CreateSnippetModalContainer />
+        // console.log("in sidebar, displayModal")
+        // console.log(this.props.username)
+        // if (this.props.username) {
+        //     return <ShareModalContainer />
+        // } else {
+        //     return <CreateUsernameModalContainer />
+        // }
     }
 
     displaySharedSnippets = () => {
@@ -53,7 +55,7 @@ class Sidebar extends React.Component {
             </li>
          
             <li class="custom-li">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Share My Workspace</button>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Create New Snippet</button>
             </li>
         </ul>
     </nav>

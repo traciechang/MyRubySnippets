@@ -20,4 +20,9 @@ class Snippet < ApplicationRecord
 
         status.success? ? stdout : stderr
     end
+
+    # private
+    # def generate_random_url
+    #     SecureRandom.urlsafe_base64
+    # end
 end
