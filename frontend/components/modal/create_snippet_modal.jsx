@@ -6,6 +6,7 @@ class CreateSnippetModal extends React.Component {
 
         this.state = {
             user_id: this.props.currentUserId,
+            snippet: "",
             url: this.generateRandomURL,
             name: `Snippet${this.props.nextSnippetName}`,
             errors: []
@@ -27,11 +28,18 @@ class CreateSnippetModal extends React.Component {
                 "errors": nextProps.errors
             })
         }
+
+        // if (nextProps.snippet.snippet_id != this.props.snippet.snippet_id) {
+        //     this.props.history.push(`/snippets/${this.state.url}`);
+        // }
     }
 
     createSnippet = (e) => {
         e.preventDefault();
-        this.props.createSnippet(this.state);
+        this.props.createSnippet(this.state)
+        .then(() => {
+            $('.modal-backdrop').remove();
+        });
     }
 
     displayErrors() {

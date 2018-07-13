@@ -10,7 +10,8 @@ const mapStateToProps = state => {
     return ({
     currentUserId: state.session.currentUser.id,
     nextSnippetName: snippetNumber,
-    errors: state.errors.username
+    errors: state.errors.username,
+    snippet: state.entities.snippet
 })};
 
 const mapDispatchToProps = dispatch => ({

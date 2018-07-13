@@ -12,37 +12,36 @@ class Home extends React.Component {
         super(props);
 
         this.state = {
-            id: this.props.snippetId,
-            snippet: this.props.snippet,
+            // id: this.props.snippetId,
+            // snippet: this.props.snippet,
             user_id: this.props.currentUserId
         }
 
         this.timeout = null;
     }
 
-    componentDidUpdate() {
-        console.log("in home, componentDidUpdate")
-        console.log(this.state.snippet)
-        clearTimeout(this.timeout);
+    // componentDidUpdate() {
+    //     console.log("in home, componentDidUpdate")
+    //     console.log(this.state.snippet)
+    //     clearTimeout(this.timeout);
 
-        this.timeout = setTimeout(() => {
-            this.props.updateSnippet(this.state);
-        }, 5000);
-    }
-
-    // componentDidMount() {
-    //     console.log("home - componentDidMount")
-    //     // const editor = document.getElementById('ace-editor');
-    //     let timeout = null;
-
-    //     this.aceEditor.onkeyup = () => {
-    //         clearTimeout(timeout);
-
-    //         timeout = setTimeout(() => {
-    //             this.props.updateSnippet(this.state);
-    //         }, 5000);
-    //     };
+    //     this.timeout = setTimeout(() => {
+    //         this.props.updateSnippet(this.state);
+    //     }, 5000);
     // }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("in Home, componentWillReceiveProps")
+        console.log((((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)))
+        // console.log(this.props.snippetURL)
+        // console.log(nextProps.snippetURL)
+        // console.log(nextProps.snippet)
+        // console.log(nextProps.snippetId)
+        if (((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)) {
+            // this.props.history.push(`/snippet/${nextProps.snippetURL}`);
+             this.props.history.push(`/snippet/100`);
+        }
+    }
 
     execute = (e) => {
         e.preventDefault();
@@ -53,8 +52,9 @@ class Home extends React.Component {
         console.log('change',newValue);
         this.setState({"snippet": newValue})
     }
-
+    
     render() {
+        console.log("in home, redner")
         let output = this.props.outputText ? this.props.outputText.output : ""
 
         return (

@@ -2,14 +2,16 @@ import { connect } from "react-redux";
 import Home from "./home";
 import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    console.log("in home Container, mapState to Props")
+    // console.log(state.session.currentUser.id)
+    return ({
     currentUserId: state.session.currentUser.id,
-    username: state.session.currentUser.username,
-    snippetId: state.session.currentUser.snippet_id,
-    snippet: state.session.currentUser.snippet,
-    outputText: state.entities.output.output,
-    sharedSnippets: state.session.currentUser.shared_snippets
-});
+    snippetId: state.entities.snippet.snippet_id,
+    snippet: state.entities.snippet.snippet,
+    snippetURL: state.entities.snippet.url,
+    outputText: state.entities.output.output
+})};
 
 const mapDispatchToProps = dispatch => ({
     executeSnippet: (snippet) => dispatch(executeSnippet(snippet)),

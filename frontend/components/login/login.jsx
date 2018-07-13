@@ -16,6 +16,7 @@ class Login extends React.Component {
 
     componentWillMount() {
         console.log("componentWillMount")
+        console.log(this.props.loggedIn)
         this.props.fetchUser()
         .then(() => {
             if (this.props.loggedIn) {

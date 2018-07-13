@@ -1,7 +1,7 @@
 require 'open3'
 
 class Snippet < ApplicationRecord
-    validates :user_id, presence: true
+    validates :user_id, :url, :name, presence: true
     belongs_to :user
 
     def execute(code)
