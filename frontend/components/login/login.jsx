@@ -17,12 +17,10 @@ class Login extends React.Component {
     componentWillMount() {
         console.log("componentWillMount")
         console.log(this.props.loggedIn)
-        this.props.fetchUser()
-        .then(() => {
-            if (this.props.loggedIn) {
-                this.props.history.push("/home");
-            }
-        })
+        
+        if (this.props.loggedIn) {
+            this.props.history.push("/home");
+        }
     }
 
     // componentDidlMount() {
