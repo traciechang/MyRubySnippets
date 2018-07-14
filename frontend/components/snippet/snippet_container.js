@@ -2,14 +2,13 @@ import { connect } from "react-redux";
 import Snippet from "./snippet";
 import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
 
-// const mapStateToProps = (state, ownProps) => ({
-    // currentUserId: state.session.currentUser.id,
-    // snippetId: state.session.currentUser.snippet_id,
-    // snippet: state.session.currentUser.snippet,
-    // outputText: state.entities.output.output,
-    // sharedSnippets: state.session.currentUser.shared_snippets,
-    // snippetURL: ownProps.location
-// });
+const mapStateToProps = (state) => ({
+    loggedIn: !!state.session.currentUser,
+    currentUserId: state.session.currentUser.id,
+    snippetId: state.entities.snippet.snippetId,
+    snippet: state.entities.snippet.snippet,
+    outputText: state.entities.output.output
+});
 
 const mapDispatchToProps = dispatch => ({
     executeSnippet: (snippet) => dispatch(executeSnippet(snippet)),
@@ -17,6 +16,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(Snippet);

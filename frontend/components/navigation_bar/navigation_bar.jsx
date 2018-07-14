@@ -8,16 +8,17 @@ class NavigationBar extends React.Component {
     }
 
     displayUser = () => {
-        // get rid of username
-        if (this.props.currentUser.username) {
-            return <span class="text-white signed-in-as">Welcome, {this.props.currentUser.username}!</span>
-        } else {
+        if (this.props.loggedIn) {
             return  <span class="text-white signed-in-as">Signed in as: {this.props.currentUser.email}</span>
         }
     }
 
     logoutButton = () => {
-        return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Log Out</button>
+        if (this.props.loggedIn) {
+            return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Log Out</button>
+        } else {
+            return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Sign In</button>
+        }
     }
 
     render() {

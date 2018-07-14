@@ -33,13 +33,8 @@ class Home extends React.Component {
     componentWillReceiveProps(nextProps) {
         console.log("in Home, componentWillReceiveProps")
         console.log((((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)))
-        // console.log(this.props.snippetURL)
-        // console.log(nextProps.snippetURL)
-        // console.log(nextProps.snippet)
-        // console.log(nextProps.snippetId)
         if (((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)) {
-            // this.props.history.push(`/snippet/${nextProps.snippetURL}`);
-             this.props.history.push(`/snippet/100`);
+            this.props.history.push(`/snippet/${nextProps.snippetURL}`);
         }
     }
 

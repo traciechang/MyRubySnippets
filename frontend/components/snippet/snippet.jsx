@@ -11,24 +11,24 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     id: this.props.snippetId,
-        //     snippet: this.props.snippet,
-        //     user_id: this.props.currentUserId
-        // }
+        this.state = {
+            id: this.props.snippetId,
+            snippet: this.props.snippet,
+            user_id: this.props.currentUserId
+        }
 
-        // this.timeout = null;
+        this.timeout = null;
     }
 
-    // componentDidUpdate() {
-    //     console.log("in home, componentDidUpdate")
-    //     console.log(this.state.snippet)
-    //     clearTimeout(this.timeout);
+    componentDidUpdate() {
+        console.log("in home, componentDidUpdate")
+        console.log(this.state.snippet)
+        clearTimeout(this.timeout);
 
-    //     this.timeout = setTimeout(() => {
-    //         this.props.updateSnippet(this.state);
-    //     }, 5000);
-    // }
+        this.timeout = setTimeout(() => {
+            this.props.updateSnippet(this.state);
+        }, 5000);
+    }
 
     // componentWillReceiveProps(nextProps) {
     //     console.log("in Home, componentWillReceiveProps")
@@ -40,52 +40,61 @@ class Home extends React.Component {
     //     }
     // }
 
-    // execute = (e) => {
-    //     e.preventDefault();
-    //     this.props.executeSnippet(this.state)
-    // }
-
-    // onChange = (newValue) => {
-    //     console.log('change',newValue);
-    //     this.setState({"snippet": newValue})
-    // }
-
-    render() {
-        return(
-            <div>hello</div>
-        )
+    displaySidebar = () => {
+        if (this.props.loggedIn) {
+            return <SidebarContainer />
+        }
     }
+
+    execute = (e) => {
+        e.preventDefault();
+        this.props.executeSnippet(this.state)
+    }
+
+    onChange = (newValue) => {
+        console.log('change',newValue);
+        this.setState({"snippet": newValue})
+    }
+
     // render() {
-    //     let output = this.props.outputText ? this.props.outputText.output : ""
-
-    //     return (
-    //         <div class="home">
-    //             <NavigationBarContainer />
-
-    //             <div class="home-body row">
-    //                 <SidebarContainer />
-    //                 <div class="editor-and-output col-9">
-    //                     <AceEditor
-    //                         mode="ruby"
-    //                         theme="monokai"
-    //                         onChange={this.onChange}
-    //                         fontSize={14}
-    //                         name="myrubee"
-    //                         value={this.state.snippet}
-    //                         editorProps={{$blockScrolling: true}} />
-
-    //                     <div class="button-and-output">
-    //                         <button class="run-button" onClick={this.execute}>Run</button>
-
-    //                         <div class="output text-white">{output}</div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-
- 
-    //         </div>
+    //     console.log("In snippet, render")
+    //     console.log(this.props.match.params.snippetURL)
+    //     return(
+    //         <div>hello</div>
     //     )
     // }
+    render() {
+        let output = this.props.outputText ? this.props.outputText.output : ""
+
+        return (
+            <div class="home">
+                <NavigationBarContainer />
+
+                <div class="home-body row">
+                    {this.displaySidebar()}
+                    {/* <SidebarContainer /> */}
+                    <div class="editor-and-output col-9">
+                        <AceEditor
+                            mode="ruby"
+                            theme="monokai"
+                            onChange={this.onChange}
+                            fontSize={14}
+                            name="myrubee"
+                            value={this.state.snippet}
+                            editorProps={{$blockScrolling: true}} />
+
+                        <div class="button-and-output">
+                            <button class="run-button" onClick={this.execute}>Run</button>
+
+                            <div class="output text-white">{output}</div>
+                        </div>
+                    </div>
+                </div>
+
+ 
+            </div>
+        )
+    }
 }
 
 export default Home;

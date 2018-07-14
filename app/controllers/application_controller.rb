@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
+    # binding.pry
     return nil unless session[:user_id]
     @current_user ||= User.find(session[:user_id])
   end
