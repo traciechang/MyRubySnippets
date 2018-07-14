@@ -1,3 +1,12 @@
+<script type="text/javascript">
+    <% if logged_in? %>
+        window.currentUser = <%= render(
+            "users/user.json.jbuilder",
+            user: current_user
+        ).html_safe %>
+    <% end %>
+</script>
+
 <link rel="shortcut icon" href="../../../public/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../../../public/favicon.ico" type="image/x-icon">
 
