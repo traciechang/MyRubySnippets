@@ -38,6 +38,12 @@ export const executeSnippet = snippet => dispatch => (
     )})
 );
 
+export const fetchSnippet = snippetURL => dispatch => (
+    SnippetAPIUtil.fetchSnippet(snippetURL).then(response => (
+        dispatch(receiveSnippet(response))
+    ))
+)
+
 export const updateSnippet = snippet => dispatch => {
     console.log("in snippet actions, updateSnippet")
     console.log(snippet)

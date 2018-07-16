@@ -10,6 +10,7 @@ class SnippetsController < ApplicationController
     end
 
     def show
+        @snippet = Snippet.find_by(url: params[:snippetURL])
     end
     
     def update

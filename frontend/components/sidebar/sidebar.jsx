@@ -20,7 +20,7 @@ class Sidebar extends React.Component {
     }
 
     displayMySnippets = () => {
-        return this.props.mySnippets.map(snip => <li><a href="#">{snip.name}</a></li>)
+        return this.props.mySnippets.map(snip => <li><a href={`#/snippet/${snip.url}`}>{snip.name}</a></li>)
     }
 
     // displaySharedSnippets = () => {

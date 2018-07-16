@@ -7,27 +7,15 @@ import { fetchCurrentUser } from "../frontend/util/user_api_util";
 document.addEventListener('DOMContentLoaded', () => {
     let store;
 
-    // if cookie.curentuser
-        // preload
-    // else
-        // GET /current_user
-        // confgurestore
-    // end
+    fetchCurrentUser().then((currentUser) => {
+        console.log('currentUser', currentUser);
 
-    fetchCurrentUser().then((response) => {
-        console.log('response', response);
+        if (currentUser) {
+            store = configureStore({ session: { currentUser } });
+        } else {
+            store = configureStore();
+        }
+
+        ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
     });
-
-    if (window.currentUser) {
-        const preloadedState = {
-            session: { currentUser: window.currentUser }
-        };
-        store = configureStore(preloadedState);
-        delete window.currentUser;
-    } else {
-        store = configureStore();
-    }
-
-    ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
-    // ReactDOM.render(<Root store={configureStore()}/>, document.getElementById('root'));
 });

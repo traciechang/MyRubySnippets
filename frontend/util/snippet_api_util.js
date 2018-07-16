@@ -16,6 +16,14 @@ export const executeSnippet = snippet => {
     })
 }
 
+export const fetchSnippet = snippetURL => (
+    $.ajax({
+        method: "GET",
+        url: `/snippets/1`,
+        data: { snippetURL }
+    })
+)
+
 export const updateSnippet = snippet => (
     $.ajax({
         method: "PATCH",

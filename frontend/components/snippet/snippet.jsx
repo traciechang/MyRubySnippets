@@ -13,8 +13,8 @@ class Home extends React.Component {
 
         this.state = {
             id: this.props.snippetId,
-            snippet: this.props.snippet,
-            user_id: this.props.currentUserId
+            snippet: this.props.snippet
+            // user_id: this.props.currentUserId
         }
 
         this.timeout = null;
@@ -30,6 +30,15 @@ class Home extends React.Component {
         }, 5000);
     }
 
+    componentDidMount() {
+        this.props.fetchSnippet(this.props.match.params.snippetURL)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.loggedIn && !nextProps.loggedIn) {
+            this.props.history.push("/")
+        }
+    }
     // componentWillReceiveProps(nextProps) {
     //     console.log("in Home, componentWillReceiveProps")
     //     console.log(nextProps.snippetURL)
