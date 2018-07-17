@@ -48,7 +48,6 @@ class Home extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("in Snippet, componentWillMount")
         if (this.props.loggedIn && !nextProps.loggedIn) {
             this.props.history.push("/")
         }

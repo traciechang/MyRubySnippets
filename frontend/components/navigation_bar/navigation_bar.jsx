@@ -1,10 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
-
-        // this.logout = this.props.logout.bind(this);
     }
 
     displayUser = () => {
@@ -17,7 +16,7 @@ class NavigationBar extends React.Component {
         if (this.props.loggedIn) {
             return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Log Out</button>
         } else {
-            return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Sign In</button>
+            return <li class=""><Link to="/">Sign In</Link></li>
         }
     }
 

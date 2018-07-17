@@ -4,6 +4,7 @@ import * as SnippetAPIUtil from "../util/snippet_api_util";
 export const RECEIVE_OUTPUT = "RECEIVE_OUTPUT";
 export const RECEIVE_SNIPPET = "RECEIVE_SNIPPET";
 export const RECEIVE_SNIPPET_ERRORS = "RECEIVE_SNIPPET_ERRORS";
+export const RECEIVE_UPDATED_SNIPPET = "RECEIVE_UPDATED_SNIPPET";
 
 export const receiveOutput = (output) => ({
     type: "RECEIVE_OUTPUT",
@@ -18,6 +19,11 @@ export const receiveSnippet = (snippet) => ({
 export const receiveSnippetErrors = errors => ({
     type: "RECEIVE_SNIPPET_ERRORS",
     errors
+})
+
+export const receiveUpdatedSnippet = snippet => ({
+    type: "RECEIVE_UPDATED_SNIPPET",
+    snippet
 })
 
 export const createSnippet = snippet => dispatch => (
@@ -49,6 +55,6 @@ export const updateSnippet = snippet => dispatch => {
     console.log(snippet)
     return (
     SnippetAPIUtil.updateSnippet(snippet).then(response => (
-        dispatch(receiveSnippet(response))
+        dispatch(receiveUpdatedSnippet(response))
     ))
 )};
