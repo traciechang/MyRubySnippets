@@ -12,12 +12,8 @@ class Home extends React.Component {
         super(props);
 
         this.state = {
-            // id: this.props.snippetId,
-            // snippet: this.props.snippet,
             user_id: this.props.currentUserId
         }
-
-        // this.timeout = null;
     }
 
     // componentDidUpdate() {
@@ -41,21 +37,8 @@ class Home extends React.Component {
             this.props.history.push(`/snippet/${nextProps.snippetURL}`);
         }
     }
-
-    // execute = (e) => {
-    //     e.preventDefault();
-    //     this.props.executeSnippet(this.state)
-    // }
-
-    // onChange = (newValue) => {
-    //     console.log('change',newValue);
-    //     this.setState({"snippet": newValue})
-    // }
     
     render() {
-        console.log("in home, redner")
-        // let output = this.props.outputText ? this.props.outputText.output : ""
-
         return (
             <div class="home">
                 <NavigationBarContainer />

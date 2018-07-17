@@ -160,12 +160,14 @@ body, html, #root, .app {
 .wrapper {
     display: flex;
     align-items: stretch;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    min-height: 100vh;
+    // min-height: 100vh;
 }
 
 #sidebar.active {

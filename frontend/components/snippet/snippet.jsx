@@ -33,12 +33,6 @@ class Home extends React.Component {
                 })
             });
         }
-
-        clearTimeout(this.timeout);
-
-        this.timeout = setTimeout(() => {
-            this.props.updateSnippet(this.state);
-        }, 5000);
     }
 
     componentDidMount() {
@@ -58,6 +52,10 @@ class Home extends React.Component {
         if (this.props.loggedIn && !nextProps.loggedIn) {
             this.props.history.push("/")
         }
+
+        if (((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)) {
+            this.props.history.push(`/snippet/${nextProps.snippetURL}`);
+        }
     }
 
     displaySidebar = () => {
@@ -72,8 +70,13 @@ class Home extends React.Component {
     }
 
     onChange = (newValue) => {
-        console.log('change',newValue);
-        this.setState({"snippet": newValue})
+        console.log("In Snippet, onChange")
+        this.setState({"snippet": newValue});
+
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+            this.props.updateSnippet(this.state);
+        }, 5000);
     }
 
     render() {

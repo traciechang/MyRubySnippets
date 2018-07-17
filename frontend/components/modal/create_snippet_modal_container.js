@@ -4,15 +4,11 @@ import CreateSnippetModal from "./create_snippet_modal";
 import { fetchUser } from "../../actions/user_actions";
 import { createSnippet } from "../../actions/snippet_actions";
 
-const mapStateToProps = state => {
-    let snippetNumber = state.session.currentUser.total_snippets != [] ? state.session.currentUser.total_snippets.length + 1 : 1
-
-    return ({
+const mapStateToProps = state => ({
     currentUserId: state.session.currentUser.id,
-    nextSnippetName: snippetNumber,
     errors: state.errors.username,
     // snippet: state.entities.snippet
-})};
+});
 
 const mapDispatchToProps = dispatch => ({
     fetchUser: () => dispatch(fetchUser()),

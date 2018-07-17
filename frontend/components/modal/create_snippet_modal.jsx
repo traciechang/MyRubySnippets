@@ -8,7 +8,7 @@ class CreateSnippetModal extends React.Component {
             user_id: this.props.currentUserId,
             snippet: "",
             url: this.generateRandomURL,
-            name: `Snippet${this.props.nextSnippetName}`,
+            name: "",
             errors: []
         }
     }
@@ -17,7 +17,7 @@ class CreateSnippetModal extends React.Component {
         this.props.fetchUser();
         $('#exampleModal').on('hidden.bs.modal', () => {
             this.setState({
-                "name": `Snippet${this.props.nextSnippetName}`,
+                "name": "",
                 "errors": []
             })
         })
@@ -36,6 +36,7 @@ class CreateSnippetModal extends React.Component {
         this.props.createSnippet(this.state)
         .then(() => {
             $('.modal-backdrop').remove();
+            $('.modal').modal('hide');
         });
     }
 
@@ -62,7 +63,7 @@ class CreateSnippetModal extends React.Component {
                     <div class="modal-body">
                         Snippet Name:
                         <form onSubmit={this.createSnippet}>
-                            <input value={this.state.name} onChange={this.updateInput("name")}/>
+                            <input value={this.state.name} placeholder="MySnippet" required onChange={this.updateInput("name")}/>
 
                             <button>Create</button>
                         </form>
