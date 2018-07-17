@@ -14,6 +14,7 @@ class CreateSnippetModal extends React.Component {
     }
 
     componentDidMount() {
+        this.props.fetchUser();
         $('#exampleModal').on('hidden.bs.modal', () => {
             this.setState({
                 "name": `Snippet${this.props.nextSnippetName}`,
@@ -28,10 +29,6 @@ class CreateSnippetModal extends React.Component {
                 "errors": nextProps.errors
             })
         }
-
-        // if (nextProps.snippet.snippet_id != this.props.snippet.snippet_id) {
-        //     this.props.history.push(`/snippets/${this.state.url}`);
-        // }
     }
 
     createSnippet = (e) => {

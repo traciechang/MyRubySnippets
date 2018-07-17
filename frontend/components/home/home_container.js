@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Home from "./home";
 import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
+import { fetchUser } from "../../actions/user_actions";
 
 const mapStateToProps = state => {
     console.log("in home Container, mapState to Props")
@@ -15,7 +16,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     executeSnippet: (snippet) => dispatch(executeSnippet(snippet)),
-    updateSnippet: (snippet) => dispatch(updateSnippet(snippet))
+    updateSnippet: (snippet) => dispatch(updateSnippet(snippet)),
+    fetchUser: () => dispatch(fetchUser())
 })
 
 export default connect(

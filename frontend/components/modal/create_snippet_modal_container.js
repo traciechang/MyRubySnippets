@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 // import CreateUsernameModal from "./create_username_modal";
 import CreateSnippetModal from "./create_snippet_modal";
-// import { updateUser } from "../../actions/user_actions";
+import { fetchUser } from "../../actions/user_actions";
 import { createSnippet } from "../../actions/snippet_actions";
 
 const mapStateToProps = state => {
@@ -11,11 +11,11 @@ const mapStateToProps = state => {
     currentUserId: state.session.currentUser.id,
     nextSnippetName: snippetNumber,
     errors: state.errors.username,
-    snippet: state.entities.snippet
+    // snippet: state.entities.snippet
 })};
 
 const mapDispatchToProps = dispatch => ({
-    // updateUser: (user) => dispatch(updateUser(user))
+    fetchUser: () => dispatch(fetchUser()),
     createSnippet: (snippet) => dispatch(createSnippet(snippet))
 });
 

@@ -23,7 +23,7 @@ class SnippetsController < ApplicationController
 
     private
     def snippet_params
-        params.require(:snippet).permit(:user_id, :url, :name)
+        params.require(:snippet).permit(:user_id, :snippet, :url, :name)
     end
 
     def updated_snippet_params

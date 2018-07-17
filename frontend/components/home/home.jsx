@@ -17,7 +17,7 @@ class Home extends React.Component {
             user_id: this.props.currentUserId
         }
 
-        this.timeout = null;
+        // this.timeout = null;
     }
 
     // componentDidUpdate() {
@@ -30,6 +30,10 @@ class Home extends React.Component {
     //     }, 5000);
     // }
 
+    componentDidMount() {
+        console.log("in Home, componentDidMount")
+        this.props.fetchUser();
+    }
     componentWillReceiveProps(nextProps) {
         console.log("in Home, componentWillReceiveProps")
         console.log((((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)))
@@ -38,19 +42,19 @@ class Home extends React.Component {
         }
     }
 
-    execute = (e) => {
-        e.preventDefault();
-        this.props.executeSnippet(this.state)
-    }
+    // execute = (e) => {
+    //     e.preventDefault();
+    //     this.props.executeSnippet(this.state)
+    // }
 
-    onChange = (newValue) => {
-        console.log('change',newValue);
-        this.setState({"snippet": newValue})
-    }
+    // onChange = (newValue) => {
+    //     console.log('change',newValue);
+    //     this.setState({"snippet": newValue})
+    // }
     
     render() {
         console.log("in home, redner")
-        let output = this.props.outputText ? this.props.outputText.output : ""
+        // let output = this.props.outputText ? this.props.outputText.output : ""
 
         return (
             <div class="home">
@@ -58,7 +62,7 @@ class Home extends React.Component {
 
                 <div class="home-body row">
                     <SidebarContainer />
-                    <div class="editor-and-output col-9">
+                    {/* <div class="editor-and-output col-9">
                         <AceEditor
                             mode="ruby"
                             theme="monokai"
@@ -73,7 +77,8 @@ class Home extends React.Component {
 
                             <div class="output text-white">{output}</div>
                         </div>
-                    </div>
+                    </div> */}
+                    <div>Home</div>
                 </div>
 
  

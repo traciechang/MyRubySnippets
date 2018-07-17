@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
 import Sidebar from "./sidebar";
-// import { executeSnippet, updateSnippet } from "../../actions/snippet_actions";
+import { fetchUser } from "../../actions/user_actions";
 
 const mapStateToProps = state => ({
-    mySnippets: state.session.currentUser.total_snippets
+    mySnippets: state.session.currentUser.total_snippets,
+    snippetURL: state.entities.snippet.url
 });
 
-// const mapDispatchToProps = dispatch => ({
-//     executeSnippet: (snippet) => dispatch(executeSnippet(snippet)),
-//     updateSnippet: (snippet) => dispatch(updateSnippet(snippet))
-// })
+const mapDispatchToProps = dispatch => ({
+    fetchUser: () => dispatch(fetchUser())
+})
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Sidebar);

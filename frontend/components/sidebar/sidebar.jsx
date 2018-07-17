@@ -8,6 +8,15 @@ class Sidebar extends React.Component {
         super(props);
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.snippetURL != this.props.snippetURL) {
+    //         this.props.fetchUser();
+    //     }
+    // }
+    componentDidMount() {
+        console.log("In SideBar, ComponentDidMount")
+        this.props.fetchUser();
+    }
     displayModal = () => {
         return <CreateSnippetModalContainer />
         // console.log("in sidebar, displayModal")
@@ -22,10 +31,6 @@ class Sidebar extends React.Component {
     displayMySnippets = () => {
         return this.props.mySnippets.map(snip => <li><a href={`#/snippet/${snip.url}`}>{snip.name}</a></li>)
     }
-
-    // displaySharedSnippets = () => {
-    //     return this.props.sharedSnippets.map(snip => <li><a href="#">{snip["username"]}</a></li>)
-    // }
 
     render() {
         return (

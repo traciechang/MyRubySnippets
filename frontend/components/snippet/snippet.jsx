@@ -13,16 +13,27 @@ class Home extends React.Component {
 
         this.state = {
             id: this.props.snippetId,
-            snippet: this.props.snippet
-            // user_id: this.props.currentUserId
+            snippet: this.props.snippet,
+            url: this.props.snippetURL
         }
 
         this.timeout = null;
     }
 
     componentDidUpdate() {
-        console.log("in home, componentDidUpdate")
+        console.log("in snippet, componentDidUpdate")
         console.log(this.state.snippet)
+        if (this.state.url != this.props.match.params.snippetURL) {
+            this.props.fetchSnippet(this.props.match.params.snippetURL)
+            .then(() => {
+                this.setState({
+                    "id": this.props.snippetId,
+                    "snippet": this.props.snippet,
+                    "url": this.props.snippetURL
+                })
+            });
+        }
+
         clearTimeout(this.timeout);
 
         this.timeout = setTimeout(() => {
@@ -31,23 +42,23 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        console.log("in Snippet, ComponentDidMount")
         this.props.fetchSnippet(this.props.match.params.snippetURL)
+        .then(() => {
+            this.setState({
+                "id": this.props.snippetId,
+                "snippet": this.props.snippet,
+                "url": this.props.snippetURL
+            })
+        });
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("in Snippet, componentWillMount")
         if (this.props.loggedIn && !nextProps.loggedIn) {
             this.props.history.push("/")
         }
     }
-    // componentWillReceiveProps(nextProps) {
-    //     console.log("in Home, componentWillReceiveProps")
-    //     console.log(nextProps.snippetURL)
-    //     console.log(nextProps.snippet)
-    //     console.log(nextProps.snippetId)
-    //     if (nextProps.snippetURL != this.props.snippetURL) {
-    //         this.props.history.push(`/snippets/${nextProps.snippetURL}`);
-    //     }
-    // }
 
     displaySidebar = () => {
         if (this.props.loggedIn) {
@@ -65,13 +76,6 @@ class Home extends React.Component {
         this.setState({"snippet": newValue})
     }
 
-    // render() {
-    //     console.log("In snippet, render")
-    //     console.log(this.props.match.params.snippetURL)
-    //     return(
-    //         <div>hello</div>
-    //     )
-    // }
     render() {
         let output = this.props.outputText ? this.props.outputText.output : ""
 
