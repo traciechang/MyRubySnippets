@@ -16,16 +16,6 @@ class Home extends React.Component {
         }
     }
 
-    // componentDidUpdate() {
-    //     console.log("in home, componentDidUpdate")
-    //     console.log(this.state.snippet)
-    //     clearTimeout(this.timeout);
-
-    //     this.timeout = setTimeout(() => {
-    //         this.props.updateSnippet(this.state);
-    //     }, 5000);
-    // }
-
     componentDidMount() {
         console.log("in Home, componentDidMount")
         this.props.fetchUser();

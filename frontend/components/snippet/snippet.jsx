@@ -3,6 +3,7 @@ import brace from "brace";
 import AceEditor from "react-ace";
 import NavigationBarContainer from "../navigation_bar/navigation_bar_container";
 import SidebarContainer from "../sidebar/sidebar_container";
+// import ActionCable from "actioncable";
 
 import 'brace/mode/ruby';
 import 'brace/theme/monokai';
@@ -45,6 +46,10 @@ class Home extends React.Component {
                 "url": this.props.snippetURL
             })
         });
+
+        this.sub = App.cable.subscriptions.create('SnippetsChannel', {
+            received: this.handleReceiveSnippet
+        })
     }
 
     componentWillReceiveProps(nextProps) {
@@ -68,9 +73,22 @@ class Home extends React.Component {
         this.props.executeSnippet(this.state)
     }
 
+    handleReceiveSnippet = (snippet) => {
+        console.log("Snippet, handleReceiveSnippet method")
+        console.log(snippet.id)
+        console.log(snippet.url)
+        console.log(snippet.snippet)
+        if (this.props.snippetId === snippet.id) {
+            console.log("wow, it's working!!")
+            this.setState({"snippet": snippet.snippet})
+        }
+    }
+
     onChange = (newValue) => {
         console.log("In Snippet, onChange")
         this.setState({"snippet": newValue});
+
+        this.sub.send(this.state);
 
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {

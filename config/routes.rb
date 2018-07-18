@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :snippets, only: [:create, :show, :update], :defaults => { :format => 'json' }
   resources :outputs, only: [:show], :defaults => { :format => 'json' }
   resources :shared_snippets, only: [:create], :defaults => { :format => 'json' }
+
+  mount ActionCable.server => '/cable'
 end
