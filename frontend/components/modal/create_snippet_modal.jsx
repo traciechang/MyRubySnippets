@@ -61,11 +61,11 @@ class CreateSnippetModal extends React.Component {
                         </button>
                     </div>
                     <div class="modal-body">
-                        Snippet Name:
-                        <form onSubmit={this.createSnippet}>
-                            <input value={this.state.name} placeholder="MySnippet" required onChange={this.updateInput("name")}/>
+                        <form class="modal-form" onSubmit={this.createSnippet}>
+                            <label class="modal-label">Snippet Name:</label>
+                            <input class="modal-input" value={this.state.name} placeholder="MySnippet" required onChange={this.updateInput("name")}/>
 
-                            <button>Create</button>
+                            <button class="modal-button">Create</button>
                         </form>
                         {this.displayErrors()}
                     </div>
@@ -81,14 +81,6 @@ class CreateSnippetModal extends React.Component {
     updateInput = key => {
         return e => this.setState({[key]: e.currentTarget.value})
     }
-
-    // updateUser = e => {
-    //     e.preventDefault();
-    //     this.props.updateUser(this.state)
-    //     .then(() => {
-    //         $('.modal-backdrop').remove();
-    //     });
-    // }
 }
 
 export default CreateSnippetModal;

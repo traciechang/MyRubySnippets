@@ -43,6 +43,14 @@ body {
 .signed-in-as {
     padding-right: 20px;
 }
+
+.sign-in-link {
+    color: #17a2b8;
+}
+
+.sign-in-link:hover {
+    color: white;
+}
 // 
 .get-started {
     overflow: hidden;
@@ -194,8 +202,8 @@ body {
 
 .run-button:hover {
     cursor: pointer;
-    background: white;
-    color: #212529;
+    background: black;
+    color: white;
 }
 
 // Sidebar
@@ -209,7 +217,6 @@ body {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    // min-height: 100vh;
 }
 
 #sidebar.active {
@@ -217,8 +224,6 @@ body {
 }
 
 #sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    // background: #7386D5;
     background: #212529;
     color: #fff;
     transition: all 0.3s;
@@ -231,7 +236,6 @@ body {
 
 #sidebar ul.components {
     padding: 20px 0;
-    // border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -261,16 +265,32 @@ ul ul a {
     background: #212529;
 }
 
-// .search-btn {
-//     width: 200px;
-// }
-
 .custom-li button {
     width: 100%;
     text-align: start;
 }
 
-// .custom-li:hover {
-//     color: #7386D5;
-//     background: #fff;
-// }
+// Modal
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-label {
+    margin-right: 10px;
+}
+
+.modal-input {
+    margin-right: 40px;
+}
+
+.modal-button {
+    color: white;
+    background: #17a2b8;
+}
+
+.modal-button:hover {
+    background: #074e58;
+    color: white;
+    cursor: pointer;
+}
