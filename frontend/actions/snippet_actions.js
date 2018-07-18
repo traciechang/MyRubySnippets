@@ -1,5 +1,4 @@
 import * as SnippetAPIUtil from "../util/snippet_api_util";
-// import { receiveSharedSnippetErrors } from "./shared_snippet_actions";
 
 export const RECEIVE_OUTPUT = "RECEIVE_OUTPUT";
 export const RECEIVE_SNIPPET = "RECEIVE_SNIPPET";
@@ -35,13 +34,9 @@ export const createSnippet = snippet => dispatch => (
 )
 
 export const executeSnippet = snippet => dispatch => (
-    SnippetAPIUtil.executeSnippet(snippet).then(response => {
-        console.log("in snippet action, executeSnippet")
-        console.log(response)
-        
-        return (
+    SnippetAPIUtil.executeSnippet(snippet).then(response => (
         dispatch(receiveOutput(response))
-    )})
+    ))
 );
 
 export const fetchSnippet = snippetURL => dispatch => (
@@ -50,11 +45,8 @@ export const fetchSnippet = snippetURL => dispatch => (
     ))
 )
 
-export const updateSnippet = snippet => dispatch => {
-    console.log("in snippet actions, updateSnippet")
-    console.log(snippet)
-    return (
+export const updateSnippet = snippet => dispatch => (
     SnippetAPIUtil.updateSnippet(snippet).then(response => (
         dispatch(receiveUpdatedSnippet(response))
     ))
-)};
+);

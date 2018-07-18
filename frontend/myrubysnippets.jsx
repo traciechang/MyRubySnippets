@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let store;
 
     fetchCurrentUser().then((currentUser) => {
-        console.log('currentUser', currentUser);
-
         if (currentUser) {
             store = configureStore({ session: { currentUser } });
         } else {

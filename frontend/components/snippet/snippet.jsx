@@ -74,7 +74,6 @@ class Home extends React.Component {
 
     handleReceiveSnippet = (snippet) => {
         if (this.props.snippetId === snippet.id) {
-            console.log("wow, it's working!!")
             this.setState({"snippet": snippet.snippet})
         }
     }
@@ -111,11 +110,7 @@ class Home extends React.Component {
                                 value={this.state.snippet}
                                 editorProps={{$blockScrolling: true}} />
 
-                            {/* <div class="output-div"> */}
-                                
-
-                                <div class="output text-white">{output}</div>
-                            {/* </div> */}
+                            <div class="output text-white">{output}</div>
                         </div>
 
                         <div class="button-and-label-div">

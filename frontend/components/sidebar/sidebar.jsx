@@ -7,7 +7,6 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
-        console.log("In SideBar, ComponentDidMount")
         this.props.fetchUser();
     }
 
@@ -19,13 +18,6 @@ class Sidebar extends React.Component {
 
     displayModal = () => {
         return <CreateSnippetModalContainer />
-        // console.log("in sidebar, displayModal")
-        // console.log(this.props.username)
-        // if (this.props.username) {
-        //     return <ShareModalContainer />
-        // } else {
-        //     return <CreateUsernameModalContainer />
-        // }
     }
 
     displayMySnippets = () => {
@@ -37,9 +29,6 @@ class Sidebar extends React.Component {
             <div class="wrapper">
 
                 <nav id="sidebar">
-                    {/* <div class="sidebar-header">
-                        <h3></h3>
-                    </div> */}
 
                     <ul class="list-unstyled components">
                 
@@ -49,17 +38,7 @@ class Sidebar extends React.Component {
 
                         <li>
                             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My Snippets</a>
-                            {/* add class "collapse if u want it to start collapsed" */}
                             <ul class=" list-unstyled" id="pageSubmenu">
-                                {/* <li>
-                                    <a href="#">Pusheen</a>
-                                </li>
-                                <li>
-                                    <a href="#">Stormy</a>
-                                </li>
-                                <li>
-                                    <a href="#">Pip</a>
-                                </li> */}
                                 {this.displayMySnippets()}
                             </ul>
                         </li>

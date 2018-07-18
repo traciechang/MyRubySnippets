@@ -6,9 +6,6 @@ class Login extends React.Component {
     }
 
     componentWillMount() {
-        console.log("componentWillMount")
-        console.log(this.props.loggedIn)
-        
         if (this.props.loggedIn) {
             this.props.history.push("/home");
         }
@@ -48,49 +45,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-// 
-
-// wow auction house
-
-// - react app, living inside of a rails app
-// - rails server-side authentication
-//   -> the server knows who the current user (think erb views)
-
-// # login
-//   session[:current_user_id] = @current_user.id
-// # logout
-//   session[:current_user_id] = nil
-
-// @current_user
-
-
-// .html.erb
-
-// <%= @current_user >
-
-// <script type="text/javascript">
-//   <%= if current_user >
-//     window.current_user_id = current_user.id
-//   <% end %>
-// </script>
-
-// <div id="root"></div>
-
-
-
-
-
-
-
-// componentDidMount = () => {
-//   if (window.current_user_id) {
-//     this.props.setCurrentUser({current_user_id: window.current_user_id})
-//   }
-// }
-
-
-
-// componentDidMount = () => {
-//   $.ajax.fetch('/users/me')
-// }

@@ -6,15 +6,13 @@ export const createSnippet = snippet => (
     })
 )
 
-export const executeSnippet = snippet => {
-    console.log("in snippet api util")
-    console.log(snippet)
-    return $.ajax({
+export const executeSnippet = snippet => (
+    $.ajax({
         method: "GET",
         url: `/outputs/${snippet.id}`,
         data: {snippet}
     })
-}
+)
 
 export const fetchSnippet = snippetURL => (
     $.ajax({

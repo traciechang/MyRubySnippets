@@ -16,7 +16,6 @@ class NavigationBar extends React.Component {
         if (this.props.loggedIn) {
             return <button class="btn-outline-info logout-button" onClick={this.props.logout}>Log Out</button>
         } else {
-            // return <li class=""><Link to="/">Sign In</Link></li>
             return <Link class="sign-in-link" to="/">Sign In</Link>
         }
     }

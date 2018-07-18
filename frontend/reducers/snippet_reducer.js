@@ -1,9 +1,5 @@
 import { RECEIVE_SNIPPET, RECEIVE_UPDATED_SNIPPET } from "../actions/snippet_actions";
 
-// const defaultState = {
-//     output: null
-// }
-
 const snippetReducer = (state = {}, action) => {
     Object.freeze(state);
 
