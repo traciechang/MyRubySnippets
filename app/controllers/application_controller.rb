@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id])
   end
 
-  def logged_in?
-    !!current_user
-  end
-
   def login(user)
     session[:user_id] = user.id
     @current_user = user

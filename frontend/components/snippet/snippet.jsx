@@ -3,7 +3,6 @@ import brace from "brace";
 import AceEditor from "react-ace";
 import NavigationBarContainer from "../navigation_bar/navigation_bar_container";
 import SidebarContainer from "../sidebar/sidebar_container";
-// import ActionCable from "actioncable";
 
 import 'brace/mode/ruby';
 import 'brace/theme/monokai';
@@ -15,35 +14,35 @@ class Home extends React.Component {
         this.state = {
             id: this.props.snippetId,
             snippet: this.props.snippet,
-            url: this.props.snippetURL
+            url: this.props.snippetURL,
+            name: this.props.snippetName
         }
 
         this.timeout = null;
     }
 
     componentDidUpdate() {
-        console.log("in snippet, componentDidUpdate")
-        console.log(this.state.snippet)
         if (this.state.url != this.props.match.params.snippetURL) {
             this.props.fetchSnippet(this.props.match.params.snippetURL)
             .then(() => {
                 this.setState({
                     "id": this.props.snippetId,
                     "snippet": this.props.snippet,
-                    "url": this.props.snippetURL
+                    "url": this.props.snippetURL,
+                    "name": this.props.snippetName
                 })
             });
         }
     }
 
     componentDidMount() {
-        console.log("in Snippet, ComponentDidMount")
         this.props.fetchSnippet(this.props.match.params.snippetURL)
         .then(() => {
             this.setState({
                 "id": this.props.snippetId,
                 "snippet": this.props.snippet,
-                "url": this.props.snippetURL
+                "url": this.props.snippetURL,
+                "name": this.props.snippetName
             })
         });
 
@@ -74,10 +73,6 @@ class Home extends React.Component {
     }
 
     handleReceiveSnippet = (snippet) => {
-        console.log("Snippet, handleReceiveSnippet method")
-        console.log(snippet.id)
-        console.log(snippet.url)
-        console.log(snippet.snippet)
         if (this.props.snippetId === snippet.id) {
             console.log("wow, it's working!!")
             this.setState({"snippet": snippet.snippet})
@@ -85,7 +80,6 @@ class Home extends React.Component {
     }
 
     onChange = (newValue) => {
-        console.log("In Snippet, onChange")
         this.setState({"snippet": newValue});
 
         this.sub.send(this.state);
@@ -105,21 +99,32 @@ class Home extends React.Component {
 
                 <div class="home-body row">
                     {this.displaySidebar()}
-                    {/* <SidebarContainer /> */}
+    
                     <div class="editor-and-output col-9">
-                        <AceEditor
-                            mode="ruby"
-                            theme="monokai"
-                            onChange={this.onChange}
-                            fontSize={14}
-                            name="myrubee"
-                            value={this.state.snippet}
-                            editorProps={{$blockScrolling: true}} />
+                        <div class="editor-and-output-div">
+                            <AceEditor
+                                mode="ruby"
+                                theme="monokai"
+                                onChange={this.onChange}
+                                fontSize={14}
+                                name="myrubee"
+                                value={this.state.snippet}
+                                editorProps={{$blockScrolling: true}} />
 
-                        <div class="button-and-output">
-                            <button class="run-button" onClick={this.execute}>Run</button>
+                            {/* <div class="output-div"> */}
+                                
 
-                            <div class="output text-white">{output}</div>
+                                <div class="output text-white">{output}</div>
+                            {/* </div> */}
+                        </div>
+
+                        <div class="button-and-label-div">
+                            <div class="button-div">
+                                <button class="run-button" onClick={this.execute}>Run</button>
+                            </div>
+                            <div class="label-div">
+                                <div class="label text-white">Working on: {this.state.name}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

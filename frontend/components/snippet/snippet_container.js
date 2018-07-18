@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
     snippetId: state.entities.snippet.snippet_id,
     snippet: state.entities.snippet.snippet,
     snippetURL: state.entities.snippet.url,
+    snippetName: state.entities.snippet.name,
     outputText: state.entities.output.output
 })};
 

@@ -5,15 +5,6 @@ class Login extends React.Component {
         super(props);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     console.log("login, componentWillReceiveProps")
-    //     console.log(nextProps.loggedIn)
-    //     console.log(nextProps.loggedIn != this.props.loggedIn)
-    //     if (nextProps.loggedIn && nextProps.loggedIn != this.props.loggedIn) {
-    //         this.props.history.push('/home');
-    //     }
-    // }
-
     componentWillMount() {
         console.log("componentWillMount")
         console.log(this.props.loggedIn)
@@ -23,18 +14,13 @@ class Login extends React.Component {
         }
     }
 
-    // componentDidlMount() {
-    //     console.log("Login, compoenent Did Mount")
-    //     this.props.fetchUser();
-    // }
-
     render() {
         return (
             <div class="login-parent">
                 <div class="login text-center">
                     <h1 class="login-h1">MyRubySnippets</h1>
 
-                    <p>A cloud-based IDE for writing, running, and debugging Ruby code in your browser</p>
+                    <p>A cloud-based IDE for writing and running Ruby code in your browser</p>
                     
                     <p class="get-started">Log in to get started</p>
 

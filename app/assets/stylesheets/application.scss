@@ -21,12 +21,14 @@ body, html, #root, .app {
     height: 100%;
 }
 
+body {
+    background-color: black;
+}
+
 // Navbar
 .navbar {
     border-bottom: 1px solid black;
-    // margin-bottom: 50px;
     background-color: black;
-    // need to apply this font to rest of Home page (minus editor)
     font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -74,7 +76,6 @@ body, html, #root, .app {
 .login-parent {
     display: flex;
     justify-content: center;
-    // min-height: 80%;
     height: 100%;
     background: linear-gradient(to right, black, red, black)
 }
@@ -108,42 +109,81 @@ body, html, #root, .app {
     width: 215.252px;
 }
 
-// Home
+// Home and Snippet
 .home {
     background-color: #363636;
     height: 100%;
+    overflow: hidden;
 }
 
 .home-body {
     display: flex;
     justify-content: space-between;
-    padding-left: 20px;
+    padding-left: 15px;
     padding-right: 20px;
     background-color: #363636;
+}
+
+.home-h1 {
+    color: red;
+    margin-bottom: 40px;
+}
+
+.home-text {
+    padding: 40px;
+    padding-top: 200px;
+    margin-top: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    height: 90vh;
+}
+
+.home-p {
+    font-size: 20px;
 }
 
 .editor-and-output {
     margin-top: 20px;
     display: flex;
+    flex-direction: column;
+}
+
+.editor-and-output-div {
+    display: flex;
     justify-content: center;
 }
 
-.button-and-output {
-    display: flex;
-    flex-direction: column;
+.button-div {
+    width: 500px;
+}
+
+.label-div {
+    width: 400px;
     margin-left: 30px;
+    padding-top: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.button-and-label-div {
+    display: flex;
+    justify-content: center;
+}
+
+.label {
+    float: right;
+    color: #17a2b8;
 }
 
 .output {
-    height: 439px;
+    height: 500px;
     width: 400px;
     background-color: black;
     padding: 5px;
     overflow-wrap: break-word;
+    margin-left: 30px;
 }
 
 .run-button {
-    background: #6d7fcc;
+    background: #212529;
     color: white;
     border: 1px solid black;
     border-radius: 2px;
@@ -154,6 +194,8 @@ body, html, #root, .app {
 
 .run-button:hover {
     cursor: pointer;
+    background: white;
+    color: #212529;
 }
 
 // Sidebar
@@ -176,14 +218,15 @@ body, html, #root, .app {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
+    // background: #7386D5;
+    background: #212529;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #212529;
 }
 
 #sidebar ul.components {
@@ -203,19 +246,19 @@ body, html, #root, .app {
     display: block;
 }
 #sidebar ul li a:hover, .custom-li button:hover {
-    color: #7386D5;
+    color: #212529;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #212529;
 }
 
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #212529;
 }
 
 // .search-btn {

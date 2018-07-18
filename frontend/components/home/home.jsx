@@ -17,12 +17,9 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        console.log("in Home, componentDidMount")
         this.props.fetchUser();
     }
     componentWillReceiveProps(nextProps) {
-        console.log("in Home, componentWillReceiveProps")
-        console.log((((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)))
         if (((this.props.snippetURL == null) && (nextProps.snippetURL != null)) || (nextProps.snippetURL != this.props.snippetURL)) {
             this.props.history.push(`/snippet/${nextProps.snippetURL}`);
         }
@@ -35,26 +32,15 @@ class Home extends React.Component {
 
                 <div class="home-body row">
                     <SidebarContainer />
-                    {/* <div class="editor-and-output col-9">
-                        <AceEditor
-                            mode="ruby"
-                            theme="monokai"
-                            onChange={this.onChange}
-                            fontSize={14}
-                            name="myrubee"
-                            value={this.state.snippet}
-                            editorProps={{$blockScrolling: true}} />
 
-                        <div class="button-and-output">
-                            <button class="run-button" onClick={this.execute}>Run</button>
+                    <div class="home-text col-9">
+                        <div class="text-center">
+                            <h1 class="home-h1">MyRubySnippets</h1>
 
-                            <div class="output text-white">{output}</div>
+                            <p class="home-p text-white">Welcome! Create a New Snippet to get started. To pair program, simply share the unique snippet link with your team - they do not need an account to work on a snippet with you.</p>
                         </div>
-                    </div> */}
-                    <div>Home</div>
+                    </div>
                 </div>
-
- 
             </div>
         )
     }
