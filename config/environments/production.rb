@@ -1,3 +1,5 @@
+require_relative "../../app/middleware/snippet_action_cable"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -43,6 +45,8 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.middleware.use SnippetActionCable
+  config.web_socket_server_url = "wss://mysterious-ridge-80923.herokuapp.com"
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
