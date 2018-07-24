@@ -6,10 +6,18 @@ export const createSnippet = snippet => (
     })
 )
 
+// export const executeSnippet = snippet => (
+//     $.ajax({
+//         method: "GET",
+//         url: `/outputs/${snippet.id}`,
+//         data: {snippet}
+//     })
+// )
+
 export const executeSnippet = snippet => (
     $.ajax({
-        method: "GET",
-        url: `/outputs/${snippet.id}`,
+        method: "POST",
+        url: `/outputs`,
         data: {snippet}
     })
 )

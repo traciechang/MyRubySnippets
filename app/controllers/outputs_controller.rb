@@ -1,7 +1,8 @@
+require_relative "../services/code_executor"
+
 class OutputsController < ApplicationController
-    def show
-        code = Snippet.find(params[:id])
-        @output = code.execute(output_params[:snippet])
+    def create
+        @output = CodeExecutor.new(output_params[:snippet]).call
         render :json => {:output => @output}.to_json
     end
 

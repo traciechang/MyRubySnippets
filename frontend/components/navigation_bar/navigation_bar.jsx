@@ -8,7 +8,7 @@ class NavigationBar extends React.Component {
 
     displayUser = () => {
         if (this.props.loggedIn) {
-            return  <span class="text-white signed-in-as">Signed in as: {this.props.currentUser.email}</span>
+            return  <span class="text-white signed-in-as">Signed in as: {this.props.currentUser.first_name}</span>
         }
     }
 
