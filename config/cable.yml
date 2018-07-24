@@ -10,5 +10,5 @@ production:
   url: redis://h:p1d5efa8832fd02cb581067681026d47ad26f30e60bd8d6944f57d2741fa2df60@ec2-52-206-1-70.compute-1.amazonaws.com:35989
   host: ec2-52-206-1-70.compute-1.amazonaws.com
   port: 35989
-  # password: 
+  password: p1d5efa8832fd02cb581067681026d47ad26f30e60bd8d6944f57d2741fa2df60
   channel_prefix: myrubysnippets_production
