@@ -19,7 +19,9 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.4"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -48,9 +50,5 @@
   "bugs": {
     "url": "https://github.com/traciechang/myrubysnippets/issues"
   },
-  "homepage": "https://github.com/traciechang/myrubysnippets#readme",
-  "devDependencies": {
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.4"
-  }
+  "homepage": "https://github.com/traciechang/myrubysnippets#readme"
 }
