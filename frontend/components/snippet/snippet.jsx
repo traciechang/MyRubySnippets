@@ -86,7 +86,10 @@ class Home extends React.Component {
             name: this.props.snippetName
         }
 
-        this.sub.send(data);
+        clearTimeout(this.subTimeout);
+        this.subTimeout = setTimeout(() => {
+            this.sub.send(data);
+        }, 250);
 
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
