@@ -74,7 +74,10 @@ class Home extends React.Component {
 
     handleReceiveSnippet = (snippet) => {
         if (this.props.snippetId === snippet.id) {
-            this.setState({"snippet": snippet.snippet})
+            clearTimeout(this.subTimeout);
+            this.subTimeout = setTimeout(() => {
+                this.setState({"snippet": snippet.snippet})
+            }, 150);
         }
     }
 
@@ -89,7 +92,7 @@ class Home extends React.Component {
         clearTimeout(this.subTimeout);
         this.subTimeout = setTimeout(() => {
             this.sub.send(data);
-        }, 250);
+        }, 150);
 
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
