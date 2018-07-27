@@ -77,7 +77,7 @@ class Home extends React.Component {
             clearTimeout(this.subTimeout);
             this.subTimeout = setTimeout(() => {
                 this.setState({"snippet": snippet.snippet})
-            }, 150);
+            }, 250);
         }
     }
 
@@ -92,7 +92,7 @@ class Home extends React.Component {
         clearTimeout(this.subTimeout);
         this.subTimeout = setTimeout(() => {
             this.sub.send(data);
-        }, 150);
+        }, 250);
 
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
