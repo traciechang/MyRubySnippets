@@ -79,9 +79,14 @@ class Home extends React.Component {
     }
 
     onChange = (newValue) => {
-        this.setState({"snippet": newValue});
+        const data = {
+            id: this.props.snippetId,
+            snippet: newValue,
+            url: this.props.snippetURL,
+            name: this.props.snippetName
+        }
 
-        this.sub.send(this.state);
+        this.sub.send(data);
 
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
