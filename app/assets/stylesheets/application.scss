@@ -211,7 +211,8 @@ body {
     display: flex;
     align-items: stretch;
     overflow-y: scroll;
-    max-height: 100vh;
+    // max-height: 100vh;
+    min-height: 100vh;
 }
 
 #sidebar {
