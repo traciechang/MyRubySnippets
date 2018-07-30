@@ -11,7 +11,7 @@ MyRubySnippets is a cloud-based IDE for writing and running Ruby code in your br
 * Integrated with the `OmniAuth` library for multi-provider authentication, including Google, GitHub, and LinkedIn.
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_450/v1532226401/MyRubySnippets/ReadMe/omniauth_login.png)
 * Collaborate with team members by simply sharing a unique `snippet` link - others do not need to create an account in order to work on a snippet with you.
-* `ActionCable` is used to implement WebSockets and allows users to see each other type in real time.
+* With the use of Rails' `ActionCable` to create pub/sub WebSocket connections in the app, users can see each other type in real time.
 * Embedded Ace code editor.
 
 ### Code Spotlights
