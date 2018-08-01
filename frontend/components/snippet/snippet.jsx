@@ -32,6 +32,8 @@ class Home extends React.Component {
                     "url": this.props.snippetURL,
                     "name": this.props.snippetName
                 })
+
+                this.inputText = undefined;
             });
         }
     }
@@ -104,8 +106,6 @@ class Home extends React.Component {
     }
 
     render() {
-        // console.log("in render")
-        // console.log(this.inputText)
         let output = this.props.outputText ? this.props.outputText.output : ""
         let snippetText = this.inputText == undefined ? this.state.snippet : this.inputText;
 
@@ -124,7 +124,6 @@ class Home extends React.Component {
                                 onChange={this.onChange}
                                 fontSize={14}
                                 name="myrubee"
-                                // value={this.state.snippet}
                                 value={snippetText}
                                 editorProps={{$blockScrolling: true}} />
 
