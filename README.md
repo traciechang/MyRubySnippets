@@ -17,7 +17,7 @@ MyRubySnippets is a cloud-based IDE for writing and running Ruby code in your br
 ### Code Spotlights
 
 **Open3 Module for Executing Ruby Code**
-* Ruby’s `Open3` module is used to capture standard `output` and standard error.
+* Ruby’s `Open3` module is used to capture standard `input` and standard error.
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_525/v1532466259/MyRubySnippets/ReadMe/outputs_controller.png)
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_600/v1532466259/MyRubySnippets/ReadMe/code_executor_rb_call.png)
@@ -30,8 +30,8 @@ MyRubySnippets is a cloud-based IDE for writing and running Ruby code in your br
 * Users must be authenticated in order to create a `snippet`. 
 * When a `snippet` is created, a unique link is generated that can be shared and used to pair program with anyone - no login is required to work on a snippet.
 * Every user on the snippet becomes a `subscriber` to its channel. As a user types, changes are `broadcasted` via the `onChange` event and all other users on this snippet can see the typing in real time.
-* `onChange` would initially `send` changes to the backend to be broadcasted and the `receivedSnippet` was set to the state immediately. This caused a delay in re-rendering the component when the app was moved to production. 
-* To compromise with a slower server, a 300-millisecond `timeout` was implemented to decrease the number of changes sent to the server and to limit the number of times needed to `setState` and re-render.
+* Initially, `onChange` would occur on every key press, which would `send` changes to the backend. The `handleReceiveSnippet` callback was then used to update the component with the new state.
+* Since Heroku is slower in handling broadcasted events, the broadcasting was limited to only after 300 milliseconds of inactivity. This solved the problem of any inconsistencies that might have been experienced when people typed too quickly on a hobby tier of Heroku's hosting service. 
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_550/v1532875264/MyRubySnippets/ReadMe/snippet_jsx_handleReceiveSnippet_onChange.png)
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_475/v1532384830/MyRubySnippets/ReadMe/snippet_channel.png)
