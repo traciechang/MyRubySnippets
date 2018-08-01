@@ -80,6 +80,7 @@ class Home extends React.Component {
             clearTimeout(this.subTimeout);
             this.subTimeout = setTimeout(() => {
                 this.setState({"snippet": receivedSnippet.snippet})
+                this.inputText = undefined;
             }, 250);
         }
     }
@@ -106,6 +107,8 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log("rendering")
+        console.log(this.inputText)
         let output = this.props.outputText ? this.props.outputText.output : ""
         let snippetText = this.inputText == undefined ? this.state.snippet : this.inputText;
 
