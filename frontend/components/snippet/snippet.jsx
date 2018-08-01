@@ -19,6 +19,7 @@ class Home extends React.Component {
         }
 
         this.timeout = null;
+        this.inputText;
     }
 
     componentDidUpdate() {
@@ -82,6 +83,8 @@ class Home extends React.Component {
     }
 
     onChange = (newValue) => {
+        this.inputText = newValue;
+
         const data = {
             id: this.props.snippetId,
             snippet: newValue,
@@ -101,7 +104,10 @@ class Home extends React.Component {
     }
 
     render() {
+        // console.log("in render")
+        // console.log(this.inputText)
         let output = this.props.outputText ? this.props.outputText.output : ""
+        let snippetText = this.inputText == undefined ? this.state.snippet : this.inputText;
 
         return (
             <div class="home">
@@ -118,7 +124,8 @@ class Home extends React.Component {
                                 onChange={this.onChange}
                                 fontSize={14}
                                 name="myrubee"
-                                value={this.state.snippet}
+                                // value={this.state.snippet}
+                                value={snippetText}
                                 editorProps={{$blockScrolling: true}} />
 
                             <div class="output text-white">{output}</div>
