@@ -128,6 +128,7 @@ class Home extends React.Component {
                                 fontSize={14}
                                 name="myrubee"
                                 value={snippetText}
+                                wrapEnabled="true"
                                 editorProps={{$blockScrolling: true}} />
 
                             <div class="output text-white">{output}</div>
