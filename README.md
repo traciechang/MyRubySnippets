@@ -4,7 +4,7 @@
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/v1532379887/MyRubySnippets/ReadMe/ezgif.com-video-to-gif_2.gif)
 
-MyRubySnippets is a cloud-based IDE for writing and running Ruby code in your browser, and allows users to easily collaborate with team members and see each other type in real time.
+MyRubySnippets is a cloud-based editor for writing and running Ruby code in your browser, and allows users to easily collaborate with team members and see each other type in real time.
 
 ### Features
 * Single-page web application with a `Rails` RESTful API built with `React` and `Redux`.
