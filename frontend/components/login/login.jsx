@@ -17,7 +17,7 @@ class Login extends React.Component {
                 <div class="login text-center">
                     <h1 class="login-h1">MyRubySnippets</h1>
 
-                    <p>A cloud-based IDE for writing and running Ruby code in your browser</p>
+                    <p>A collaborative, cloud-based editor for writing and running Ruby code in your browser.</p>
                     
                     <p class="get-started">Log in to get started</p>
 
